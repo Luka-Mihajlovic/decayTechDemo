@@ -48,6 +48,8 @@ public class controllerAnalysis : MonoBehaviour
 
     public bool isSprinting = false;
 
+    public float remainingStam = 100;
+
     void Start()
     {
         bPress.EnableDirectAction();
@@ -67,7 +69,7 @@ public class controllerAnalysis : MonoBehaviour
 
         while (checkingControllers)
         {
-
+            Debug.LogWarning("STAMINA: " + remainingStam);
             float bPressed = bPress.action.ReadValue<float>();
             float lControllerStart = leftController.transform.position.y;
             float rControllerStart = rightController.transform.position.y;
@@ -80,6 +82,9 @@ public class controllerAnalysis : MonoBehaviour
             float lDelta = lControllerStart - lControllerEnd;
             float rDelta = rControllerStart - rControllerEnd;
 
+            float stamDrain = (100 * .2f) / 2; //making it easier for calc, divide with how many seconds to last while sprinting - rn its 2
+            float stamGain = stamDrain / 4; //gain 25% what you use per second, fun
+
             bool isStrafe = LocomotionMove.GetComponent<forkedActionBasedContinuousMoveProvider>().isStrafing;
 
             if (countDown == 0 || isStrafe) //check for reducing countdown and setting sprinting to the proper value
@@ -87,7 +92,7 @@ public class controllerAnalysis : MonoBehaviour
                 isSprinting = false;
             }
 
-            if (bPressed == 1 && !isStrafe) //if sprinting is even toggled + we're not strafing
+            if (bPressed == 1 && !isStrafe && remainingStam > 0) //if sprinting is even toggled + we're not strafing
             {
                 if (Mathf.Abs(lDelta) > 0.2 && Mathf.Abs(rDelta) > 0.2 && (rDelta * lDelta < 0)) //big stuff but we're looking at diff direction swings + long swings
                 {
@@ -98,14 +103,34 @@ public class controllerAnalysis : MonoBehaviour
             }
 
             if (isSprinting)
-            {
+            { 
                 locomotionMove.GetComponent<forkedActionBasedContinuousMoveProvider>().moveSpeed = normalSpeed*4;
                 countDown--;
+
+                remainingStam -= stamDrain;
+                if (remainingStam <= 0)
+                {
+                    //cleanup, swap to being non-sprinting
+                    remainingStam = 1;
+                    isSprinting = false;
+                    locomotionMove.GetComponent<forkedActionBasedContinuousMoveProvider>().moveSpeed = normalSpeed / 2;
+                    countDown = 0;
+
+                    //wait 5s
+                    Debug.LogWarning("EXHAUSTED!!!");
+                    yield return new WaitForSeconds(5);
+                    Debug.LogWarning("not exhausted anymore.");
+                }
             }
             else
             {
                 locomotionMove.GetComponent<forkedActionBasedContinuousMoveProvider>().moveSpeed = normalSpeed;
                 countDown = 0;
+
+                if (remainingStam < 100)
+                {
+                    remainingStam += stamGain;
+                }
             }
         }
     }
