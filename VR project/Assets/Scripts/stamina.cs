@@ -1,0 +1,50 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+public class Stamina : MonoBehaviour
+{
+    public TMP_Text canvasStamina;
+    public Image vignette;
+    public Image canvasBackground;
+    private float remainingStem;
+
+    void Start()
+    {
+        canvasStamina.text = "100%";
+        canvasStamina.color = Color.green;
+        canvasBackground.color = new Color(0, 0, 0, 0);
+        vignette.color = new Color(0, 0, 0, 0);
+    }
+
+    void Update()
+    {
+        float remainingStam = controllerAnalysis.remainingStam;
+
+        string StringRemainingStam = remainingStam.ToString("F0") + "%";
+        canvasStamina.text = StringRemainingStam;
+        canvasStamina.fontStyle = FontStyles.Normal;
+
+        Debug.Log(100 - remainingStam);
+        canvasBackground.color = new Color(0, 0, 0, (100 - remainingStam) / 100f);
+        vignette.color = new Color(0, 0, 0, (100 - remainingStam) / 255f);
+
+        if (remainingStam > 80)
+        {
+            canvasStamina.color = new Color(0, 255, 0);
+
+        }
+        else if (remainingStam > 50)
+        {
+            canvasStamina.color = new Color(255, 255, 0);
+        }
+        else
+        {
+            canvasStamina.color = new Color(255, 0, 0);
+            canvasStamina.fontStyle = FontStyles.Bold;
+        }
+
+    }
+}

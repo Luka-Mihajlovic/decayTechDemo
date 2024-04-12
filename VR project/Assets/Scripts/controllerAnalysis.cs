@@ -48,7 +48,7 @@ public class controllerAnalysis : MonoBehaviour
 
     public bool isSprinting = false;
 
-    public float remainingStam = 100;
+    public static float remainingStam = 100;
 
     void Start()
     {
@@ -69,7 +69,6 @@ public class controllerAnalysis : MonoBehaviour
 
         while (checkingControllers)
         {
-            Debug.LogWarning("STAMINA: " + remainingStam);
             float bPressed = bPress.action.ReadValue<float>();
             float lControllerStart = leftController.transform.position.y;
             float rControllerStart = rightController.transform.position.y;
@@ -96,7 +95,6 @@ public class controllerAnalysis : MonoBehaviour
             {
                 if (Mathf.Abs(lDelta) > 0.2 && Mathf.Abs(rDelta) > 0.2 && (rDelta * lDelta < 0)) //big stuff but we're looking at diff direction swings + long swings
                 {
-                    Debug.Log("Sprinting");
                     isSprinting = true;
                     countDown = 5; //gives ~1sec (5xdelay) of coyote time for sprinting
                 }
@@ -117,9 +115,7 @@ public class controllerAnalysis : MonoBehaviour
                     countDown = 0;
 
                     //wait 5s
-                    Debug.LogWarning("EXHAUSTED!!!");
                     yield return new WaitForSeconds(5);
-                    Debug.LogWarning("not exhausted anymore.");
                 }
             }
             else
