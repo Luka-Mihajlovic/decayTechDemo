@@ -17,9 +17,9 @@ public class geigerCounter : MonoBehaviour
 
     void setSound(int target)
     {
-        for(int i = 0; i < geigerSounds.Length; i++)
+        for (int i = 0; i < geigerSounds.Length; i++)
         {
-            if(i != target)
+            if (i != target)
             {
                 geigerSounds[i].enabled = false;
             }
@@ -37,31 +37,30 @@ public class geigerCounter : MonoBehaviour
         Vector3 counterPos = gCounter.transform.position;
         Vector3 sourcePos = radioactiveSource.transform.position;
 
-        distToSource = (Mathf.Pow((counterPos.x - sourcePos.x),2f) + Mathf.Pow((counterPos.y - sourcePos.y), 2f) + Mathf.Pow((counterPos.z - sourcePos.z), 2f));
-        
+        distToSource = (Mathf.Pow((counterPos.x - sourcePos.x), 2f) + Mathf.Pow((counterPos.y - sourcePos.y), 2f) + Mathf.Pow((counterPos.z - sourcePos.z), 2f));
 
-        if(distToSource < 10f)
+        if (distToSource < 10f)
         {
             radLevel = "die";
             setSound(4);
         }
         else
         {
-            if (distToSource < 30f && distToSource > 10f) //high
+            if (distToSource < 30f) //high
             {
                 radLevel = "high";
                 setSound(3);
             }
             else
             {
-                if(distToSource < 75f && distToSource > 30f) //medium
+                if (distToSource < 75f) //medium
                 {
                     radLevel = "med";
                     setSound(2);
                 }
                 else
                 {
-                    if(distToSource < 120f)
+                    if (distToSource < 120f)
                     {
                         radLevel = "low";
                         setSound(1);
@@ -73,6 +72,6 @@ public class geigerCounter : MonoBehaviour
                 }
             }
         }
-       
+
     }
 }
