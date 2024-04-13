@@ -7,7 +7,6 @@ using TMPro;
 public class Stamina : MonoBehaviour
 {
     public TMP_Text canvasStamina;
-    public Image vignette;
     public Image canvasBackground;
     private float remainingStem;
 
@@ -16,7 +15,6 @@ public class Stamina : MonoBehaviour
         canvasStamina.text = "100%";
         canvasStamina.color = Color.green;
         canvasBackground.color = new Color(0, 0, 0, 0);
-        vignette.color = new Color(0, 0, 0, 0);
     }
 
     void Update()
@@ -28,8 +26,7 @@ public class Stamina : MonoBehaviour
         canvasStamina.fontStyle = FontStyles.Normal;
 
         Debug.Log(100 - remainingStam);
-        canvasBackground.color = new Color(0, 0, 0, (100 - remainingStam) / 100f);
-        vignette.color = new Color(0, 0, 0, (100 - remainingStam) / 255f);
+        canvasBackground.color = new Color(0, 0, 0, (100 - remainingStam) / 90f);
 
         if (remainingStam > 80)
         {
