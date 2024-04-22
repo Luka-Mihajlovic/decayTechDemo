@@ -11,14 +11,13 @@ public class StaticUI : MonoBehaviour
 
     void Start()
     {
-        radLevel = "low";
+        radLevel = null;
         originalColor = uiImage.color;
     }
 
     void Update()
     {
         string radLevel = geigerCounter.radLevel;
-        Debug.Log(radLevel);
         float alpha;
         switch (radLevel)
         {
