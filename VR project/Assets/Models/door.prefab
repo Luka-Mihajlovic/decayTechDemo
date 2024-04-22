@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 2371953059447954662}
   - component: {fileID: 1971227380608643291}
   - component: {fileID: 2799694456992094103}
+  - component: {fileID: 4222573057192989582}
   m_Layer: 0
   m_Name: 01_low
   m_TagString: Untagged
@@ -509,7 +510,7 @@ HingeJoint:
   m_UseAcceleration: 0
   m_Limits:
     min: -90
-    max: 0
+    max: 90
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -519,6 +520,27 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!65 &4222573057192989582
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683013657788266481}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.10887215, y: 0.8030787, z: 1.9387606}
+  m_Center: {x: 0.01797909, y: -0.39169112, z: 0.9756203}
 --- !u!1 &8557853227591935401
 GameObject:
   m_ObjectHideFlags: 0
