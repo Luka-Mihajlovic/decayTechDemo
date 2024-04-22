@@ -1892,6 +1892,7 @@ GameObject:
   - component: {fileID: 448454087}
   - component: {fileID: 448454090}
   - component: {fileID: 448454088}
+  - component: {fileID: 448454091}
   m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
@@ -1908,7 +1909,7 @@ Transform:
   m_GameObject: {fileID: 448454086}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.11}
+  m_LocalPosition: {x: 0, y: 0, z: 0.712}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1931,10 +1932,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.43558884, y: 0.68585664, z: 1}
-  m_Center: {x: 0.053361893, y: -0.157072, z: 0}
+  m_Size: {x: 0.43, y: 0.59, z: 0.34}
+  m_Center: {x: -0.1, y: -0.157072, z: 0.24}
 --- !u!33 &448454090
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1943,6 +1944,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448454086}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!135 &448454091
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448454086}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &449882752 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6582512385375136926, guid: 24cb8c572f0aedd41aed6653590edec7, type: 3}
@@ -5353,22 +5375,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2371953059447954662, guid: 0ad430d0f7838bc46acc0e0a4c1843cc, type: 3}
-      propertyPath: m_Mass
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2371953059447954662, guid: 0ad430d0f7838bc46acc0e0a4c1843cc, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2799694456992094103, guid: 0ad430d0f7838bc46acc0e0a4c1843cc, type: 3}
-      propertyPath: m_Limits.max
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 2799694456992094103, guid: 0ad430d0f7838bc46acc0e0a4c1843cc, type: 3}
-      propertyPath: m_Limits.min
-      value: -120
-      objectReference: {fileID: 0}
     - target: {fileID: 8557853227591935401, guid: 0ad430d0f7838bc46acc0e0a4c1843cc, type: 3}
       propertyPath: m_Name
       value: door (13)
@@ -6447,7 +6453,6 @@ GameObject:
   - component: {fileID: 1531318205}
   - component: {fileID: 1531318204}
   - component: {fileID: 1531318203}
-  - component: {fileID: 1531318202}
   - component: {fileID: 1531318209}
   - component: {fileID: 1531318208}
   - component: {fileID: 1531318207}
@@ -6460,29 +6465,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &1531318202
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531318201}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.36
-  m_Height: 2.62
-  m_Direction: 2
-  m_Center: {x: 0, y: -0.28607765, z: 0.0473029}
 --- !u!23 &1531318203
 MeshRenderer:
   m_ObjectHideFlags: 0
