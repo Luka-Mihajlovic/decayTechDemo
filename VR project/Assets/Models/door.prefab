@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6983957686506655283}
   - component: {fileID: 3378132033695917139}
   - component: {fileID: 4663702618916074976}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 8605457737892344576}
   - component: {fileID: 561473308627498528}
   - component: {fileID: 5022968865000897940}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 03_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 707610350477613343}
   - component: {fileID: 3686653901567163554}
   - component: {fileID: 5953282545117984451}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,8 @@ GameObject:
   - component: {fileID: 1971227380608643291}
   - component: {fileID: 2799694456992094103}
   - component: {fileID: 4222573057192989582}
-  m_Layer: 0
+  - component: {fileID: 4640103380961826142}
+  m_Layer: 9
   m_Name: 01_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,6 +542,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.10887215, y: 0.8030787, z: 1.9387606}
   m_Center: {x: 0.01797909, y: -0.39169112, z: 0.9756203}
+--- !u!114 &4640103380961826142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683013657788266481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &8557853227591935401
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1014616948368542179}
   - component: {fileID: 5503924147658885265}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
