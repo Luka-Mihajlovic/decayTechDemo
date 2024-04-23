@@ -39,28 +39,28 @@ public class geigerCounter : MonoBehaviour
 
         distToSource = (Mathf.Pow((counterPos.x - sourcePos.x), 2f) + Mathf.Pow((counterPos.y - sourcePos.y), 2f) + Mathf.Pow((counterPos.z - sourcePos.z), 2f));
 
-        if (distToSource < 10f)
+        if (distToSource < 40f)
         {
             radLevel = "die";
             setSound(4);
         }
         else
         {
-            if (distToSource < 30f) //high
+            if (distToSource < 100f) //high
             {
                 radLevel = "high";
                 setSound(3);
             }
             else
             {
-                if (distToSource < 75f) //medium
+                if (distToSource < 300f) //medium
                 {
                     radLevel = "med";
                     setSound(2);
                 }
                 else
                 {
-                    if (distToSource < 120f)
+                    if (distToSource < 500f)
                     {
                         radLevel = "low";
                         setSound(1);

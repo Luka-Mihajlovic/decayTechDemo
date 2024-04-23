@@ -82,7 +82,7 @@ public class controllerAnalysis : MonoBehaviour
             float lDelta = lControllerStart - lControllerEnd;
             float rDelta = rControllerStart - rControllerEnd;
 
-            float stamDrain = Mathf.Ceil((100 * .2f) / 2); //making it easier for calc, divide with how many seconds to last while sprinting - rn its 2
+            float stamDrain = Mathf.Ceil((100 * .2f) / 3); //making it easier for calc, divide with how many seconds to last while sprinting - rn its 2
             float stamGain = Mathf.Floor(stamDrain / 4); //gain 25% what you use per second, fun
 
             bool isStrafe = LocomotionMove.GetComponent<forkedActionBasedContinuousMoveProvider>().isStrafing;
@@ -103,7 +103,7 @@ public class controllerAnalysis : MonoBehaviour
 
             if (isSprinting)
             { 
-                locomotionMove.GetComponent<forkedActionBasedContinuousMoveProvider>().moveSpeed = normalSpeed*4;
+                locomotionMove.GetComponent<forkedActionBasedContinuousMoveProvider>().moveSpeed = normalSpeed*3;
                 countDown--;
 
                 remainingStam -= stamDrain;

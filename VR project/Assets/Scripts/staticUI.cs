@@ -7,33 +7,45 @@ public class StaticUI : MonoBehaviour
 {
     public Image uiImage;
     private Color originalColor;
-    private string radLevel;
+
+    [SerializeField]
+    private GameObject radTarget;
+
+    Renderer radRender;
 
     void Start()
     {
-        radLevel = null;
         originalColor = uiImage.color;
+        radRender = radTarget.GetComponent<Renderer>();
     }
 
     void Update()
     {
-        string radLevel = geigerCounter.radLevel;
         float alpha;
-        switch (radLevel)
+        if (radRender.isVisible)
         {
-            case "die":
-                alpha = 0.3f; 
-                break;
-            case "high":
-                alpha = 0.2f;
-                break;
-            case "med":
-                alpha = 0.1f;
-                break;
-            default:
-                alpha = 0f;
-                break;
+            string radLevel = geigerCounter.radLevel;
+            switch (radLevel)
+            {
+                case "die":
+                    alpha = 0.75f;
+                    break;
+                case "high":
+                    alpha = 0.5f;
+                    break;
+                case "med":
+                    alpha = 0.25f;
+                    break;
+                default:
+                    alpha = 0f;
+                    break;
+            }
         }
+        else
+        {
+            alpha = 0f;
+        }
+
         uiImage.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
     }
 }

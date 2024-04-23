@@ -25,7 +25,7 @@ public class Stamina : MonoBehaviour
         canvasStamina.text = StringRemainingStam;
         canvasStamina.fontStyle = FontStyles.Normal;
 
-        canvasBackground.color = new Color(0, 0, 0, (100 - remainingStam +10) / 90f);
+        //canvasBackground.color = new Color(0, 0, 0, (100 - remainingStam +50) / 90f);
 
         if (remainingStam > 80)
         {
